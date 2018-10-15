@@ -11,10 +11,8 @@ public class CustomLinkedList<E> {
         if(this.head == null){
             this.head = new Node<E>(value);
         } else{
-            Node tmp = head;
-            this.head = new Node<E>(value);
-            this.head.prev = (null);
-            this.head.next = tmp;
+            Node tmp = this.head;
+            this.head = new Node<E>(value, null, tmp);
             tmp.prev = this.head;
         }
         ++size;
@@ -58,12 +56,10 @@ public class CustomLinkedList<E> {
             addTail(value);
             return true;
         }
-
-        Node toInsert = new Node(value);
+        
         Node atIndex = getNode(index);
+        Node toInsert = new Node(value, atIndex.prev, atIndex);
 
-        toInsert.next = atIndex;
-        toInsert.prev = atIndex.prev;
         atIndex.prev.next = toInsert;
         atIndex.prev = toInsert;
 
@@ -98,16 +94,14 @@ public class CustomLinkedList<E> {
     public void addTail(E value) {
         Node tail = getTail();
 
+        // if empty list
         if (tail == null){
-            tail = new Node(value);
-            tail.prev = head;
+            tail = new Node(value, this.head, null);
             ++size;
             return;
         }
 
-        Node newTail = new Node(value);
-        newTail.prev = tail;
-        newTail.next = null;
+        Node newTail = new Node(value, tail, null);
         tail.next = newTail;
         ++size;
     }
