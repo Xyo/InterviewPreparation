@@ -1,3 +1,5 @@
+package problems;
+
 // https://leetcode.com/problems/merge-two-binary-trees/description/
 class MergeBinaryTree {
     // TODO: refactor to just add values to t1 tree

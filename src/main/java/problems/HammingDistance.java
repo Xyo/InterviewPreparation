@@ -1,4 +1,4 @@
-package Problems;
+package problems;
 
 // https://leetcode.com/problems/hamming-distance/description/
 public class HammingDistance {

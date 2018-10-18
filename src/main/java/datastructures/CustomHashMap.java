@@ -1,8 +1,9 @@
+package main.java.datastructures;
 import sun.security.action.GetBooleanAction;
 
 public class CustomHashMap {
 
-    private Entry<K, V>[] table = new Entry[16];
+    private Entry<K. V>[] table = new Entry[16];
 
     public V get(Object key) {
         int hashkey = hash(key);
@@ -19,10 +20,10 @@ public class CustomHashMap {
         }
     }
 
-    public boolean put(K key, E value) {
+    private boolean put(K key, E value) {
         Entry newEntry = new Entry(key, value, null);
         Entry existingKeyFound = get(key);
-        if(existingKeyFound != null){
+        if (existingKeyFound != null){
             existingKeyFound.next = newEntry;
         } else {
             int hashkey = hash(key);
@@ -36,7 +37,7 @@ public class CustomHashMap {
         return hashkey % this.table.size();
     }
 
-    private Entry resolveCollision(Entry firstEntry, E key) {
+    private Entry resolveCollision(Entry firstEntry, Object key) {
         Entry e = firstEntry;
         do {
             if(e.key == key) return e;

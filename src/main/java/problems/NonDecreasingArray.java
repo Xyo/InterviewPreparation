@@ -1,6 +1,6 @@
-//https://leetcode.com/problems/non-decreasing-array/description/
-
+package problems;
 import java.util.ArrayList;
+// https://leetcode.com/problems/non-decreasing-array/description/
 
 class NonDecreasingArray {
 
